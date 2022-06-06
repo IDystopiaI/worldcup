@@ -4,11 +4,18 @@ PSQL="psql --username=freecodecamp --dbname=worldcup --no-align --tuples-only -c
 
 # Do not change code above this line. Use the PSQL variable above to query your database.
 
+# very rough join to view all info contained in tables
+# select * from games 
+# join teams as a 
+# on games.winner_id = a.team_id 
+# join teams as b 
+# on games.opponent_id = b.team_id;
+
 echo -e "\nTotal number of goals in all games from winning teams:"
 echo "$($PSQL "SELECT SUM(winner_goals) FROM games")"
 
 echo -e "\nTotal number of goals in all games from both teams combined:"
-echo
+echo "$($PSQL "SELECT SUM(winner_goals + opponent_goals) from games;")"
 
 echo -e "\nAverage number of goals in all games from the winning teams:"
 echo
