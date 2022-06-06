@@ -31,7 +31,7 @@ do
           # make better feedback
       # if [[ $INSERT_WINNER == "INSERT 0 1" ]]
       # then
-      #   echo Inserted winner : $WINNER
+        echo Inserted winner: $WINNER
       # fi
   
       # get WINNER_ID for games table
@@ -68,6 +68,6 @@ do
 # year round winner_goals opponent_goals [fkey winner_id] [fkey opponent_id]
 # place inside first if clause so that there is no null insert when $WINNER == 'winner'
   GAME_INSERT=$($PSQL "INSERT INTO games(year, round, winner_goals, opponent_goals, winner_id, opponent_id) VALUES($YEAR, '$ROUND', $WINNER_GOALS, $OPPONENT_GOALS, $WINNER_ID, $OPPONENT_ID)")
-  echo "$GAME_INSERT"
+  # echo "$GAME_INSERT"
   fi
 done
